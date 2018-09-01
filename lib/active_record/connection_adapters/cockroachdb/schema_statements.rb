@@ -58,6 +58,7 @@ module ActiveRecord
         # modified insert into statement to always wrap the version value into single quotes for cockroachdb.
         def assume_migrated_upto_version(version, migrations_paths)
           migrations_paths = Array(migrations_paths)
+          logger.debug "testing logging"
           version = version.to_i
 
           migrated = ActiveRecord::SchemaMigration.all_versions.map(&:to_i)
